@@ -6,8 +6,8 @@ function Header() {
   const navigate = useNavigate()
   function handleSubmit(e){
     e.preventDefault()
-    navigate(`movie/${movie}`)
-    setMovie(" ")
+    navigate(`results/${movie}`)
+    setMovie("")
   }
   return (
     <header>
@@ -19,10 +19,11 @@ function Header() {
           <input 
           name='movie'
           type="search"
+          placeholder='Movie Name'
           value={movie}
           onChange={(e)=> setMovie(e.target.value)}
           />
-          <button >Search</button>
+          <button>Search</button>
         </form>
     </header>
   )
