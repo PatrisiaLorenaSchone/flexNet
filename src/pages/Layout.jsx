@@ -8,7 +8,6 @@ import { MdArrowBackIos } from "react-icons/md";
 
 function Layout() {
   let location = useLocation()
-  console.log(location)
   return (
     <>
     <Header/>

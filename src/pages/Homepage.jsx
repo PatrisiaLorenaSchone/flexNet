@@ -1,6 +1,11 @@
 import React from 'react'
 import { Link, useParams, useSearchParams } from 'react-router-dom'
 import SecondaryTitle from '../components/SecondaryTitle'
+import { RiMovie2Line } from "react-icons/ri";
+import { BiCameraMovie } from "react-icons/bi";
+import { BiMoviePlay } from "react-icons/bi";
+import { MdOutlineLocalMovies } from "react-icons/md";
+
 
 let movieData = [
   {
@@ -119,10 +124,38 @@ function Homepage() {
   })
   return (
     <div>
-      <SecondaryTitle text="Our recomandations"/>
+      <SecondaryTitle text="Our top picks"/>
       <div className='main-container'>
       {movies}
       </div>
+      <div className='hero-section'>
+        <h1>Cinema Experience at Home</h1>
+        <p>FlexNet is a cutting-edge movie streaming app that redefines the way you experience entertainment. With a sleek and user-friendly interface, FlexNet offers a vast library of movies spanning genres, from thrilling blockbusters to indie gems. Whether you're a cinephile or casual viewer, FlexNet provides the ultimate cinematic journey, making movie nights more flexible and enjoyable than ever before.</p>
+        <a href="#top"><button>Discover</button></a>
+      </div>
+      <div className='marquee'>
+        <div>
+        <p>The Godfather  Schindler's List  Casablanca  Citizen Kane  Gone with the Wind  The Shawshank Redemption  Pulp Fiction  The Dark Knight  The Matrix  Forrest Gump  Star Wars  The Lord of the Rings  12 Angry Men  Psycho  The Silence of the Lambs  Lawrence of Arabia  Jurassic Park  Inception  The Wizard of Oz  The Great Gatsby  Titanic  Avatar  Blade Runner  The Sound of Music</p>
+          <RiMovie2Line />
+          <BiCameraMovie />
+          <BiMoviePlay />
+          <MdOutlineLocalMovies />
+          <RiMovie2Line />
+          <BiCameraMovie />
+          <BiMoviePlay />
+          <MdOutlineLocalMovies />
+          <RiMovie2Line />
+          <BiCameraMovie />
+          <BiMoviePlay />
+          <MdOutlineLocalMovies />
+          <RiMovie2Line />
+          <BiCameraMovie />
+          <BiMoviePlay />
+          <MdOutlineLocalMovies />
+          <RiMovie2Line />
+          <BiCameraMovie />
+        </div>
+        </div>
     </div>
   )
 }

@@ -3,7 +3,7 @@ import React from 'react'
 function SecondaryTitle({text}) {
   return (
     <div className='secondary-title'>
-        <p>🍿 {text}</p>
+        <h3>🍿 {text}</h3>
     </div>
   )
 }

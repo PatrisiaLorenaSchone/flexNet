@@ -2,9 +2,9 @@ import React from 'react'
 
 function Footer() {
   return (
-    <div>
-      
-    </div>
+    <footer>
+      <small>copyrights -Patricia Lorena Schone- Design and Development.	&#169; All Rights reserved</small>
+    </footer>
   )
 }
 

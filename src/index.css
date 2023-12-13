@@ -10,6 +10,16 @@ a{
   margin: 0;
   padding: 0;
 }
+*{
+  font-family: 'Montserrat', sans-serif;
+}
+p{
+  font-weight: 200;
+  font-size: 1.1rem;
+  letter-spacing: 0.01rem;
+  line-height: 1.5;
+  font-family: sans-serif
+}
 button{
   background-color: brown;
   border: 1px solid red;
@@ -44,7 +54,7 @@ input:focus{
   padding: 10px 50px;
 }
 .main-container{
-  width: 70%;
+  width: 73%;
   margin: auto;
   background-color: #171717;
   padding:10px;
@@ -113,6 +123,7 @@ header{
   justify-content: space-between;
   border-bottom: 1px solid rgba(220, 220, 220, 0.3);
   padding-bottom: 10px;
+  margin-bottom: 50px;
 }
 ::-webkit-scrollbar {
   width: 0;  /* Remove scrollbar space */
@@ -154,7 +165,9 @@ header{
   color: whitesmoke;
   filter: drop-shadow(1px 1px 20px rgba(255, 255, 255, 0.3));
 }
-
+.secondary-title h3{
+  font-weight: 400;
+}
 .icon{
   height: 100px;
   width: 100px;
@@ -181,7 +194,66 @@ header{
   flex-wrap: wrap;
   margin: auto;
   justify-content: center;
-  width: 90%;
+  width: 80%;
+}
+.hero-section{
+  background-color: #111111;
+  height: 780px;
+  margin-top: 50px;
+  text-align: center;
+  background-image: url(./assets/photo-1489599849927-2ee91cede3ba.avif);
+  background-size: cover;
+  background-position: bottom;
+  background-blend-mode:lighten;
+}
+.hero-section h1{
+  color: whitesmoke;
+  padding: 50px 10px 0px 10px;
+}
+.hero-section p {
+  width: 70%;
+  max-width: 950px;
+  margin: auto;
+  color: whitesmoke;
+}
+.hero-section button{
+  margin-top: 30px;
+}
+.info-section{
+  background-color: #111111;
+  height: 700px;
+  margin-top: 50px;
+  text-align: center;
+}
+footer{
+  text-align: center;
+  margin-top: 100px;
+  color: rgba(220, 220, 220, 0.5);
+}
+.marquee {
+  width: 100%;
+  margin-top: 30px;
+  line-height: 50px;
+  background-color: rgba(255, 0, 0, 0);
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.marquee svg{
+  height: 70px;
+  width: 70px;
+  fill: rgba(245, 245, 245, 0.3);
+  margin:0 50px;
+}
+.marquee div {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 15s linear infinite;
+}
+@keyframes marquee {
+  0%   { transform: translate(0, 0); }
+  100% { transform: translate(-100%, 0); }
 }
 @media screen and (max-width: 700px) {
   .movie-dashboard{
@@ -201,6 +273,9 @@ header{
   form{
     justify-content: center;
   }
+  h1, h3{
+    font-size: 1.7rem;
+  }
   .title h1{
     font-size: 3.5rem;
   }
@@ -217,5 +292,11 @@ header{
   }
   .movie-dashboard{
     padding: 0;
+  }
+  .hero-section p{
+    width: 100%;
+  }
+  .hero-section{
+    margin: 0;
   }
 }

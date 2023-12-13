@@ -32,6 +32,7 @@ function Moviepage() {
   return (
     error ? <NotFound/> :
     movie &&
+    <>
     <div className='main-container'>
       <div className='movie-dashboard'>
         <img src={movie.image} alt={movie.title}/>
@@ -43,6 +44,8 @@ function Moviepage() {
         </div>
       </div>
     </div>
+    {/* <div className='info-section'></div> */}
+    </>
   )
 }
 //`<div id="movie-container" class="movie-container"><img src="${data.Poster}"/><p class="badge">${data.Genre}</p><h3>${data.Title}, ${data.Year}</h3> <p>${data.Plot}</p> <small class="rating">Rating IMDB: ${data.imdbRating}</small></div>`

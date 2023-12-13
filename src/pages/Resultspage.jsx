@@ -39,7 +39,7 @@ function Resultspage() {
     return (
       error ? <NotFound/> :
       <div className='results-container'>
-        {results}
+        {results ? results : <h1>Loading...</h1>}
       </div>
     )
   }
