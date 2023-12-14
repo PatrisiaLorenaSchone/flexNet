@@ -206,6 +206,21 @@ header{
   background-position: bottom;
   background-blend-mode:lighten;
 }
+.left-arrow, .right-arrow{
+  height: 70px;
+  width: 79px;
+  fill: rgba(245, 245, 245, 0.5);
+  position: absolute;
+  top: 50%;
+  cursor: pointer;
+  z-index: 5;
+}
+.left-arrow{
+  left: 5%;
+}
+.right-arrow{
+  right: 5%;
+}
 .hero-section h1{
   color: whitesmoke;
   padding: 50px 10px 0px 10px;
@@ -244,12 +259,48 @@ footer{
   height: 70px;
   width: 70px;
   fill: rgba(245, 245, 245, 0.3);
-  margin:0 50px;
+  margin:0 70px;
 }
 .marquee div {
   display: inline-block;
   padding-left: 100%;
   animation: marquee 15s linear infinite;
+}
+.red-section{
+  margin: auto;
+  width: 100%;
+  background-image: url(./assets/film.png);
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-position: center;
+  background-size: contain;
+  position: relative;
+}
+.trailer-container{
+  background-color: rgba(165, 42, 42, 0.7);
+  height: 500px;
+  width: 650px;
+  max-width: 800px;
+  margin: auto;
+  border-radius: 10px;
+  transition: 0.5s;
+  flex: 1, 1, auto;
+}
+.trailer-container:hover{
+  transform: scale(1.1);
+}
+.carousel{
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap:30px;
+}
+iframe{
+  border: 2px solid darkred;
+  width: 100%;
 }
 @keyframes marquee {
   0%   { transform: translate(0, 0); }
@@ -298,5 +349,19 @@ footer{
   }
   .hero-section{
     margin: 0;
+    width: 100%;
+  }
+  .trailer-container{
+    width: 100%;
+  }
+  .left-arrow{
+    left: -15px;
+    height: 50px;
+    width: 50px;
+  }
+  .right-arrow{
+    right: -15px;
+    height: 50px;
+    width: 50px;
   }
 }

@@ -16,6 +16,7 @@ function Resultspage() {
       .then(data =>{ 
         if(data.Search){
             setArrOfMovies(data.Search)
+            console.log(data.Search)
             setError(false)
         }else{
             setError(true)

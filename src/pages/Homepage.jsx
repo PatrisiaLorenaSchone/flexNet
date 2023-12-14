@@ -5,6 +5,8 @@ import { RiMovie2Line } from "react-icons/ri";
 import { BiCameraMovie } from "react-icons/bi";
 import { BiMoviePlay } from "react-icons/bi";
 import { MdOutlineLocalMovies } from "react-icons/md";
+import { FaChevronCircleLeft } from "react-icons/fa";
+import { FaChevronCircleRight } from "react-icons/fa";
 
 
 let movieData = [
@@ -107,9 +109,38 @@ let movieData = [
     rating: 8.5,
     image: "https://m.media-amazon.com/images/M/MV5BOTgyMWQ0ZWUtN2Q2MS00NmY0LWI3OWMtNjFkMzZlNDZjNTk0XkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg"
   },
+  {
+    id: "tt0110333",
+    title: "Leave the World Behind",
+    year: 2023,
+    genre: "Thriler",
+    description: "A family vacation is interrupted by two strangers. As the threat grows, both families must decide how best to survive the potential crisis, all while grappling with their own place in this collapsing world.",
+    rating: 6.6,
+    image: "https://m.media-amazon.com/images/M/MV5BMTUzM2I3NDEtMjNhYi00NTQ0LThmZDItZTMyMzM2MjJmZGRjXkEyXkFqcGdeQXVyMTU3NDU4MDg2._V1_SX300.jpg, "
+  },
 ]
+//
+
+let trailers = ["https://www.youtube.com/embed/OAZWXUkrjPc", "https://www.youtube.com/embed/_inKs4eeHiI", "https://www.youtube.com/embed/avz06PDqDbM", "https://www.youtube.com/embed/KDUtdcU10YA", "https://www.youtube.com/embed/7mgu9mNZ8Hk"]
 
 function Homepage() {
+  const [index, setIndex] = React.useState(0)
+
+  function next(){
+    if(index < trailers.length - 1){
+      setIndex( index + 1)
+    }else{
+      setIndex(0)
+    }
+  }
+
+  function prev(){
+    if(index > 0){
+      setIndex( index - 1)
+    }else{
+      setIndex(trailers.length - 1)
+    }
+  }
 
   let movies = movieData.map((movie)=>{
     return(
@@ -135,7 +166,6 @@ function Homepage() {
       </div>
       <div className='marquee'>
         <div>
-        <p>The Godfather  Schindler's List  Casablanca  Citizen Kane  Gone with the Wind  The Shawshank Redemption  Pulp Fiction  The Dark Knight  The Matrix  Forrest Gump  Star Wars  The Lord of the Rings  12 Angry Men  Psycho  The Silence of the Lambs  Lawrence of Arabia  Jurassic Park  Inception  The Wizard of Oz  The Great Gatsby  Titanic  Avatar  Blade Runner  The Sound of Music</p>
           <RiMovie2Line />
           <BiCameraMovie />
           <BiMoviePlay />
@@ -155,6 +185,14 @@ function Homepage() {
           <RiMovie2Line />
           <BiCameraMovie />
         </div>
+        </div>
+        <div className='red-section'>
+          <SecondaryTitle text="2023 Trailers "/>
+          <div className='carousel'>
+          <FaChevronCircleLeft  className='left-arrow' onClick={prev}/>
+          <iframe className='trailer-container' src={trailers[index]} allowFullScreen={true} ></iframe>
+          <FaChevronCircleRight className='right-arrow' onClick={next}/>
+          </div>
         </div>
     </div>
   )
