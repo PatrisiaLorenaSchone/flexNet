@@ -6,6 +6,7 @@ import placeholder from "../assets/placeholder.png"
 
 function Resultspage() {
     let { name } = useParams()
+    const [loading, setLoading] = React.useState(false)
     const [error, setError] = React.useState(false)
     const [arrOfMovies, setArrOfMovies] = React.useState([])
 
@@ -13,16 +14,17 @@ function Resultspage() {
     React.useEffect(()=>{
       fetch(`https://www.omdbapi.com/?apikey=2e6aad13&s=${name}`)
       .then(res => res.json())
-      .then(data =>{ 
+      .then(data =>{
+        setLoading(true)
         if(data.Search){
             setArrOfMovies(data.Search)
-            console.log(data.Search)
             setError(false)
         }else{
             setError(true)
         }
+        setLoading(false)
     })
-      .catch(err => {setError(true); console.log(err)})
+      .catch(err => {setError(err)})
     }, [name])
   
 
@@ -37,10 +39,18 @@ function Resultspage() {
         )
     })
 
+  if (loading) {
+      return( 
+        <>Loading...</>
+      )
+  }
+  
+  if (error) {
+      return <NotFound/>
+  }
     return (
-      error ? <NotFound/> :
       <div className='results-container'>
-        {results ? results : <h1>Loading...</h1>}
+        {results}
       </div>
     )
   }

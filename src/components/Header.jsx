@@ -25,6 +25,7 @@ function Header() {
           />
           <button>Search</button>
         </form>
+        <Link className='list-btn' to="list">Watch List</Link>
     </header>
   )
 }

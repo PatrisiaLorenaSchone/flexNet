@@ -1,16 +1,25 @@
 import React from 'react'
 import NotFound from './NotFound'
 import { Link, useParams, useSearchParams } from 'react-router-dom'
+import { IoAddCircleOutline } from "react-icons/io5";
+import {FilmContext} from '../App'
 
 function Moviepage() {
+  const {setList} = React.useContext(FilmContext)
   let { name } = useParams()
+  const [loading, setLoading] = React.useState(false)
   const [movie, setMovie] = React.useState("")
   const[error, setError] = React.useState(false)
+
+  function handleAdd(){
+    setList((prevList)=>[...prevList, movie.title])
+  }
 
   React.useEffect(()=>{
     fetch(`https://www.omdbapi.com/?apikey=2e6aad13&t=${name}`)
     .then(res => res.json())
     .then(data =>{ 
+    setLoading(true) 
     if(data.Title){
       setMovie({
         id: data.imdbID,
@@ -22,6 +31,7 @@ function Moviepage() {
         image: data.Poster,
       })
       setError(false)
+      setLoading(false) 
     }else{
       setError(true)
     }
@@ -29,11 +39,19 @@ function Moviepage() {
     .catch(err => console.log(err))
   }, [movie, error, name])
 
+  if (loading) {
+    return( 
+      <>Loading...</>
+    )
+}
+
+if (error) {
+    return <NotFound/>
+}
   return (
-    error ? <NotFound/> :
     movie &&
     <>
-    <div className='main-container'>
+    <div className='dashboard-container'>
       <div className='movie-dashboard'>
         <img src={movie.image} alt={movie.title}/>
         <div>
@@ -41,6 +59,7 @@ function Moviepage() {
         <p>{movie.genre}</p>
         <p>{movie.description}</p> 
         <small className="rating">Rating IMDB: {movie.rating}</small>
+        <div onClick={handleAdd} className='add-btn'> Add to Watch list</div>
         </div>
       </div>
     </div>

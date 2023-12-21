@@ -12,6 +12,7 @@ a{
 }
 *{
   font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
 }
 p{
   font-weight: 200;
@@ -78,7 +79,7 @@ input:focus{
   background-color: #111111;
   border-radius: 2.3px;
   color: whitesmoke;
-  width: 250px;
+  width: 270px;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -184,10 +185,27 @@ header{
   display: none;
 }
 .movie-dashboard{
+  background-color: rgba(35, 35, 35, 0.5);
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 30px;
   padding: 20px;
   color: rgba(245, 245, 245, 0.7);
+  width: fit-content;
+  margin: auto;
+  margin-top: 30px;
+  padding: 50px;
+}
+.movie-dashboard p{
+  max-width: 500px;
+}
+.movie-dashboard h2{
+  color: whitesmoke;
+  border-bottom: 1px solid rgba(220, 220, 220, 0.5);
+}
+.movie-dashboard img{
+  height: 450px;
 }
 .results-container{
   display: flex;
@@ -208,12 +226,17 @@ header{
 }
 .left-arrow, .right-arrow{
   height: 70px;
-  width: 79px;
+  width: 70px;
   fill: rgba(245, 245, 245, 0.5);
   position: absolute;
   top: 50%;
   cursor: pointer;
   z-index: 5;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 50%;
+}
+.left-arrow:hover, .right-arrow:hover{
+  fill: rgba(245, 245, 245, 0.8);
 }
 .left-arrow{
   left: 5%;
@@ -276,7 +299,7 @@ footer{
   justify-content: center;
   align-items: center;
   background-position: center;
-  background-size: contain;
+  background-size: 80%;
   position: relative;
 }
 .trailer-container{
@@ -298,9 +321,57 @@ footer{
   flex-wrap: wrap;
   gap:30px;
 }
+.list-page{
+  display: flex;
+  flex-wrap: wrap;
+  color: rgba(245, 245, 245, 0.8);
+  padding: 3%;
+}
+.list-page h3{
+  margin-left: 3.5%;
+}
+.list{
+  background-color: rgba(255, 0, 0, 0.2);
+  color: white;
+  min-width: 90%;
+  flex: 1 0;
+}
+.list li::marker{
+  content: "🍿";
+}
+.list a{
+  color: whitesmoke;
+  display: inline-block;
+  padding: 10px 0px;
+  text-decoration: underline;
+}
+.add-btn{
+  display: flex;
+  align-items: center;
+  color: rgba(255, 0, 0, 0.3);
+  cursor: pointer;
+  margin-top: auto;
+  gap: 5px;
+  margin-top: 50px;
+  text-decoration: underline;
+}
+.add-btn:hover{
+  color: rgba(255, 0, 0, 0.6);
+}
+.add-btn svg{
+  height: 25px;
+  width: 25px;
+}
 iframe{
   border: 2px solid darkred;
   width: 100%;
+}
+.list-btn{
+  color: rgba(220, 220, 220, 0.7);
+  position: absolute;
+  top: 150px;
+  right: 15%;
+  padding: 5px;
 }
 @keyframes marquee {
   0%   { transform: translate(0, 0); }
@@ -309,6 +380,9 @@ iframe{
 @media screen and (max-width: 700px) {
   .movie-dashboard{
     flex-direction: column;
+  }
+  .movie-dashboard img{
+    width: 100%;
   }
   header{
     width: 100%;
@@ -324,8 +398,8 @@ iframe{
   form{
     justify-content: center;
   }
-  h1, h3{
-    font-size: 1.7rem;
+  h1, h3, h2{
+    font-size: 1.3rem;
   }
   .title h1{
     font-size: 3.5rem;
@@ -342,7 +416,7 @@ iframe{
     padding-top: 0;
   }
   .movie-dashboard{
-    padding: 0;
+    padding: 15px;
   }
   .hero-section p{
     width: 100%;
@@ -353,6 +427,7 @@ iframe{
   }
   .trailer-container{
     width: 100%;
+    height: 355px;
   }
   .left-arrow{
     left: -15px;
@@ -363,5 +438,9 @@ iframe{
     right: -15px;
     height: 50px;
     width: 50px;
+  }
+  .list-btn{
+    top: 170px;
+    right: 8%;
   }
 }
