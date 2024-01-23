@@ -1,5 +1,6 @@
 import React from 'react'
 import NotFound from './NotFound'
+import spinner from '../assets/spinner.svg'
 import { Link, useParams, useSearchParams } from 'react-router-dom'
 import { IoAddCircleOutline } from "react-icons/io5";
 import {FilmContext} from '../App'
@@ -16,40 +17,35 @@ function Moviepage() {
   }
 
   React.useEffect(()=>{
-    fetch(`https://www.omdbapi.com/?apikey=2e6aad13&t=${name}`)
-    .then(res => res.json())
-    .then(data =>{ 
-    setLoading(true) 
-    if(data.Title){
-      setMovie({
-        id: data.imdbID,
-        title: data.Title,
-        year: data.Year,
-        genre: data.Genre,
-        description: data.Plot,
-        rating: data.imdbRating,
-        image: data.Poster,
-      })
-      setError(false)
-      setLoading(false) 
-    }else{
-      setError(true)
-    }
-  })
-    .catch(err => console.log(err))
-  }, [movie, error, name])
+      const fetchMovie = async()=>{
+        setLoading(true) 
+        const response = await fetch(`https://www.omdbapi.com/?apikey=2e6aad13&t=${name}`)
+        const data = await response.json()
+        setMovie({
+          id: data.imdbID,
+          title: data.Title,
+          year: data.Year,
+          genre: data.Genre,
+          description: data.Plot,
+          rating: data.imdbRating,
+          image: data.Poster,
+        });
+        setLoading(false)
+      }
+      fetchMovie()
+  }, [name])
 
-  if (loading) {
+if (loading) {
     return( 
-      <>Loading...</>
+      <div className='loading'>
+      <img src={spinner} alt="" />
+        <h2>Loading...</h2>
+      </div>
     )
 }
 
-if (error) {
-    return <NotFound/>
-}
   return (
-    movie &&
+    !movie ? <NotFound/> :
     <>
     <div className='dashboard-container'>
       <div className='movie-dashboard'>

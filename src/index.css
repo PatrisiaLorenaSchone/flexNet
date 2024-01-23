@@ -114,6 +114,7 @@ h3{
 .movie-container img{
   height: 350px;
   width: 100%;
+  object-fit: cover;
 }
 header{
   display: flex;
@@ -206,6 +207,7 @@ header{
 }
 .movie-dashboard img{
   height: 450px;
+  object-fit: cover;
 }
 .results-container{
   display: flex;
@@ -243,6 +245,13 @@ header{
 }
 .right-arrow{
   right: 5%;
+}
+.loading{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgb(218, 218, 218);
 }
 .hero-section h1{
   color: whitesmoke;
